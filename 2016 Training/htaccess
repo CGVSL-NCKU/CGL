@@ -1,0 +1,4 @@
+AuthName "Login"
+AuthType basic
+AuthUserFile "2016Training.txt"
+require valid-user
