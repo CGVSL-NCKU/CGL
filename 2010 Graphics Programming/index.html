@@ -1,0 +1,438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5" />
+<title>GP Course Resource</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js" type="text/javascript"></script> 
+<!-- Required for jQuery dialog demo--> 
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" type="text/javascript"></script> 
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-darkness/jquery-ui.css" type="text/css" media="all" /> 
+<!-- AJAX Upload script doesn't have any dependencies--> 
+<script type="text/javascript" src="script/ajaxupload.3.6.js"></script>
+<style type="text/css">
+<!--
+body {font-family: verdana, arial, helvetica, sans-serif;font-size: 13px;background: #373A32;color: #D0D0D0;}
+h1 {color: #C7D92C;	font-size: 18px; font-weight: 400;}
+a {	color: white;}
+a:hover, a.hover {color: #C7D92C;}
+#text {	margin: 25px; }
+-->
+</style>
+ 
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#dialog').dialog({ autoOpen: false });
+  
+  $('#upload_dialog').click(function(){
+    $("#dialog").dialog("open");
+	return false;
+  });
+  
+  new AjaxUpload('#hwupload', {
+    action: 'script/upload-test.php',
+	name: 'myfile',
+	onSubmit : function(file, ext){
+	  if (! (ext && /^(zip|ZIP)$/i.test(ext))){
+		  alert('Error: invalid file extension');
+		  return false;
+	  }
+	  $('#hwupload').text('Uploading ' + file);
+	  //this.disable();
+	},
+	onComplete : function(file, response){
+	  if (response.indexOf("<") == -1){		// IE
+	    if (response != "success"){
+		  	alert(response);
+			$('#hwupload').text('Click to Upload');
+			return;
+		}
+	  }
+	  else{
+	    if (response.substr(0, response.indexOf("<")) != "success"){		// Chrome
+            alert(response.substr(0, response.indexOf("<")));
+		    $('#hwupload').text('Click to Upload');
+			return;
+	    }
+	  }
+	  $('#hwupload').text(file + ' uploading complete!');
+      this.disable();
+    }
+  });				   
+});
+</script>
+
+</head>
+
+<body>
+<div align="center">
+  <h1>Graphics Programming Course Resource</h1>
+  <table width="684" height="105" border="0">
+	  <tr>
+	    <th width="90" height="21" scope="col"><div align="center">
+	      <p><strong>4/15(Thur.)</strong></p>
+	      </div></th>
+	    <th width="584" scope="col"> <p align="left"><strong> A homework assignment with due day at 11:59pm on April 28th.</strong>
+	      <!--<strong> <a id="upload_dialog" href="#">[Upload]</a></strong>-->
+          </th>
+    </tr>
+	  <tr>
+	    <td height="21"><div align="center">
+	      <p><strong>6/03(Thur.)</strong></p>
+	      </div></td>
+	    <td><p align="left"><strong>上機測驗，兩人一組，每組需做兩題(3ds*1 &amp; 程式*1)，可攜帶資料進場(文件/程式碼...)</strong><strong>，請抽時間重做作業練習(以求快速正確)，當天請盡早到教室，考試15:20開始。 <br />
+	      (P.S. 考試範圍： 3ds - 階層式架構, 程式 - 陰影相關的應用)</strong>
+	      <!-- <strong> <a id="upload_dialog" href="#">[Upload]</a></strong>-->
+	      </p></td>
+    </tr>
+	  <tr>
+	    <td height="20"><div align="center">
+	      <p><strong>6/30(Thur.)</strong></p>
+        </div></td>
+	    <td><p align="left">
+        <strong>
+        [課程]三維繪圖 - 期末專題公告
+        <br><br>
+        今天(6/14)正式確定期末Project也跟考試一樣為兩人一組 <br>
+		內容也是類似於考試. 一題為使用3ds製作動畫, 另一題為使用opengl製作動畫
+		<br>
+        主題沒有限制, 使用到的特效越多越好, 除了上課有教的部分之外可以在自己加上
+        <br>
+        幾項額外的特效. 最後評分採用相對分數的方式, 做的越有特色/和別人越能夠區別
+        <br>
+        可以拿到越高的分數
+        <br><br>
+        opengl請附上程式碼/執行檔/文字報告
+        <br>
+        開發環境請使用VS2005/VS2008
+        <br><br>
+        3ds請附上.max檔,還有相關材質圖/物件... 以及完成後產生的影片 + 文字報告
+        <br>
+        (請盡可能使用常見的codec,解析度為720x480,推薦使用.mov/.mp4/.wmv)
+        <br>
+        開發環境請使用Max 9, Max 2009 或是Max 2010 (請於文件中註明)
+        <br><br>
+        繳交期限為下下周四 (6/30)
+        <br>
+        繳交方式會另外在課程網頁上公布
+        <br><br>
+        [其他資源]
+        <br>
+        NEHE - opengl教學
+        <br>
+        http://nehe.gamedev.net/ (原始官方網站)
+        <br>
+        http://www.owlei.com/DancingWind/ (簡中版)
+        <br><br>
+        壓影片工具
+        <br>
+        QT http://www.apple.com/quicktime/download/ (請自行尋找專業版)
+        <br>
+        WMV http://www.microsoft.com/windows/windowsmedia/tw/9series/encoder/default.aspx
+        <br>
+        (免費,短網址:http://goo.gl/AYZA)
+        <br>
+        <br>
+        [上傳] (2010.06.28 updated)<br>
+        ftp://gpisgood:projectupload@140.116.246.51:3790</strong></p></td>
+      </tr>
+	  <tr>
+	    <td height="21"><div align="center">
+	      <p><strong>6/28(Mon.)</strong></p>
+	      </div></td>
+	    <td><p align="left"><strong>**目前成績** <a href="http://goo.gl/H8ho">[Link]</a></strong></p></td>
+    </tr>
+  </table>
+  <br>
+  <div id="dialog" style="display:none;" title="Upload Dialog">
+    <font face="Verdana, Geneva, sans-serif" size="2">Upload your work with .zip format and the file name should be in the form of 'StudentNumber_Name'</font>
+    <br /><br /><a id="hwupload">Click to Upload</a>
+  </div>
+  
+</div>
+<div align="center">
+  <table width="685" height="462" border="0">
+    <tr>
+      <th width="263" height="21" scope="col"><div align="center">
+        <p>File Name</p>
+      </div></th>
+      <th width="103" scope="col"><div align="center">
+        <p>Update Time</p>
+      </div></th>
+      <th width="85" scope="col"><div align="center">
+        <p>Download</p>
+      </div></th>
+      <th width="216" scope="col"><div align="center">
+        <p>Note</p>
+      </div></th>
+    </tr>
+    <tr>
+      <td height="21"><div align="center">
+        <p>Bug_GL_Ans.rar</p>
+      </div></td>
+      <td><div align="center">
+        <p>2010-06-14</p>
+      </div></td>
+      <td><div align="center">
+        <p><a href="resource/Bug_GL_Ans.rar">Click</a></p>
+      </div></td>
+      <td><div align="center">
+        <p>&nbsp;</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td height="21"><div align="center">
+        <p>ch06.ppt</p>
+      </div></td>
+      <td><div align="center">
+        <p>2010-06-14</p>
+      </div></td>
+      <td><div align="center">
+        <p><a href="resource/ch06.ppt">Click</a></p>
+      </div></td>
+      <td><div align="center">
+        <p>Chapter 6 of OpenGL Super Bible</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td height="21"><div align="center">
+        <p>ch06.rar</p>
+      </div></td>
+      <td><div align="center">
+        <p>2010-06-23</p>
+      </div></td>
+      <td><div align="center">
+        <p><a href="resource/ch06.rar">Click</a></p>
+      </div></td>
+      <td><div align="center">
+        <p>resource for ch06.ppt <br>(project properties fixed)</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td height="21"><div align="center">
+        <p>camera_map.max</p>
+      </div></td>
+      <td><div align="center">
+        <p>2010-05-27</p>
+      </div></td>
+      <td><div align="center">
+        <p><a href="resource/camera_map.max">Click</a></p>
+      </div></td>
+      <td><div align="center">
+        <p>&nbsp;</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td height="21"><div align="center">
+        <p>3ds_intro.rar</p>
+      </div></td>
+      <td><div align="center">
+        <p>2010-05-13</p>
+      </div></td>
+      <td><div align="center">
+        <p><a href="resource/3ds_intro.rar">Click</a></p>
+      </div></td>
+      <td><div align="center">
+        <p>&nbsp;</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td height="21"><div align="center">
+        <p>Shadow_Matrix.ppt</p>
+      </div></td>
+      <td><div align="center">
+        <p>2010-05-10</p>
+      </div></td>
+      <td><div align="center">
+        <p><a href="resource/Shadow_Matrix.ppt">Click</a></p>
+      </div></td>
+      <td><div align="center">
+        <p>&nbsp;</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td height="21"><div align="center">
+        <p>Shadow_Matrix.rar</p>
+      </div></td>
+      <td><div align="center">
+        <p>2010-05-10</p>
+      </div></td>
+      <td><div align="center">
+        <p><a href="resource/Shadow_Matrix.rar">Click</a></p>
+      </div></td>
+      <td><div align="center">
+        <p>&nbsp;</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td height="21"><div align="center">
+        <p>Hierarchical_Motion_C2.ppt</p>
+      </div></td>
+      <td><div align="center">
+        <p>2010-04-29</p>
+      </div></td>
+      <td><div align="center">
+        <p><a href="resource/Hierarchical_Motion_C2.ppt">Click</a></p>
+      </div></td>
+      <td><div align="center">
+        <p>&nbsp;</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td height="21"><div align="center">
+        <p>Robot_Arm(ANS).rar</p>
+      </div></td>
+      <td><div align="center">
+        <p>2010-04-29</p>
+      </div></td>
+      <td><div align="center">
+        <p><a href="resource/Robot_Arm(ANS).rar">Click</a></p>
+      </div></td>
+      <td><div align="center">
+        <p>&nbsp;</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td height="21"><div align="center">
+        <p>OpenGL_Car.ppt</p>
+      </div></td>
+      <td><div align="center">
+        <p>2010-04-22</p>
+      </div></td>
+      <td><div align="center">
+        <p><a href="resource/OpenGL_Car.ppt">Click</a></p>
+      </div></td>
+      <td><div align="center">
+        <p>&nbsp;</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td height="21"><div align="center">
+        <p>OpenGL_Car_Sample.rar</p>
+      </div></td>
+      <td><div align="center">
+        <p>2010-04-23</p>
+      </div></td>
+      <td><div align="center">
+        <p><a href="resource/OpenGL_Car_Sample.rar">Click</a></p>
+      </div></td>
+      <td><div align="center">
+        <p>render_ANS.cpp added</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td height="21"><div align="center">
+        <p>Convert_image_into_tga_fix.ppt</p>
+      </div></td>
+      <td><div align="center">
+        <p>2010-04-22</p>
+      </div></td>
+      <td><div align="center">
+        <p><a href="resource/Convert_image_into_tga_fix.ppt">Click</a></p>
+      </div></td>
+      <td><div align="center">
+        <p>Guideline for creating .tga file</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td height="21"><div align="center">
+        <p>Midterm_project.ppt</p>
+      </div></td>
+      <td><div align="center">
+        <p>2010-04-15</p>
+      </div></td>
+      <td><div align="center">
+        <p><a href="resource/Midterm_project.ppt">Click</a></p>
+      </div></td>
+      <td><div align="center">
+        <p>Midterm project</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td height="21"><div align="center">
+        <p>2D_Sprite_demo_v3_fix3.rar</p>
+      </div></td>
+      <td><div align="center">
+        <p>2010-04-22</p>
+      </div></td>
+      <td><div align="center">
+        <p><a href="resource/2D_Sprite_demo_v3_fix3.rar">Click</a></p>
+</div></td>
+      <td><div align="center">
+        <p>Midterm project demo<br />(kgltexture edited &amp; sprite fixed)</p>
+</div></td>
+    </tr>
+    <tr>
+      <td height="21"><div align="center">
+        <p>2D_Sprite_demo_v2.rar</p>
+      </div></td>
+      <td><div align="center">
+        <p>2010-04-08</p>
+      </div></td>
+      <td><div align="center">
+        <p><a href="resource/2D_Sprite_demo_v2.rar">Click</a></p>
+      </div></td>
+      <td><div align="center">
+        <p>Textures' alpha channel added</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td height="21"><div align="center">
+        <p>2D_Sprite.ppt</p>
+      </div></td>
+      <td><div align="center">
+        <p>2010-04-08</p>
+      </div></td>
+      <td><div align="center">
+        <p><a href="resource/2D_Sprite.ppt">Click</a></p>
+      </div></td>
+      <td><div align="center">
+        <p>&nbsp;</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td height="21"> <div align="center">
+        <p>2D_Sprite_demo.rar</p>
+      </div></td>
+      <td><div align="center">
+        <p>2010-04-08</p>
+      </div></td>
+      <td><div align="center">
+        <p><a href="resource/2D_Sprite_demo.rar">Click</a></p>
+      </div></td>
+      <td><div align="center">
+        <p>&nbsp;</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td height="21"> <div align="center">
+        <p>OpenGL_TextureMapping_simple.ppt</p>
+      </div></td>
+      <td><div align="center">
+        <p>2010-04-08</p>
+      </div></td>
+      <td><div align="center">
+        <p><a href="resource/OpenGL_TextureMapping_simple.ppt">Click</a></p>
+      </div></td>
+      <td><div align="center">
+        <p>&nbsp;</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td height="21"> <div align="center">
+        <p>texture_mapping_demo.rar</p>
+      </div></td>
+      <td><div align="center">
+        <p>2010-04-08</p>
+      </div></td>
+      <td><div align="center">
+        <p><a href="resource/texture_mapping_demo.rar">Click</a></p>
+      </div></td>
+      <td><div align="center">
+        <p>&nbsp;</p>
+      </div></td>
+    </tr>
+  </table> 
+</div>
+<p>&nbsp;</p>
+</body>
+</html>

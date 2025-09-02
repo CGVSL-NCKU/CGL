@@ -1,0 +1,4 @@
+AuthName "Login"
+AuthType basic
+AuthUserFile "C:\xampp\highRelief.txt"
+require valid-user
