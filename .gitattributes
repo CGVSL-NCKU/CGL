@@ -4,3 +4,9 @@
 *.zip filter=lfs diff=lfs merge=lfs -text
 *.mp4 filter=lfs diff=lfs merge=lfs -text
 *.pptx filter=lfs diff=lfs merge=lfs -text
+Course/*.mkv filter=lfs diff=lfs merge=lfs -text
+Course/*.ppt filter=lfs diff=lfs merge=lfs -text
+Course/*.pptx filter=lfs diff=lfs merge=lfs -text
+Course/*.pdf filter=lfs diff=lfs merge=lfs -text
+Course/*.zip filter=lfs diff=lfs merge=lfs -text
+Course/*.mp4 filter=lfs diff=lfs merge=lfs -text
